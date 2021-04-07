@@ -27,7 +27,7 @@ def get_last_bd_srag_csv_url(year=2021):
 
 
 
-def get_srag_data(year=2021,update=False,treat=True,selected_columns='BASIC',aditional_columns=[]):
+def get_srag_data(year=2021,update=True,treat=True,selected_columns='BASIC',aditional_columns=[]):
 
     sep = ';'
     quotechar = '"'
