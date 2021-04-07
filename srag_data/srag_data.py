@@ -27,7 +27,7 @@ def get_last_bd_srag_csv_url(year=2021):
 
 
 
-def get_srag_data(year=2021,update=True,treat=True,selected_columns='BASIC',aditional_columns=[]):
+def get_srag_data(year=2021,update=True,save_local=False,treat=True,selected_columns='BASIC',aditional_columns=[]):
 
     sep = ';'
     quotechar = '"'
@@ -40,7 +40,8 @@ def get_srag_data(year=2021,update=True,treat=True,selected_columns='BASIC',adit
         url = get_last_bd_srag_csv_url(year)
         print(f'\nDownloading from <{url}> ... ', end='')
         df = pd.read_csv(url,sep=sep,quotechar=quotechar,dtype=object)
-        df.to_csv(fname,index=False)
+        if save_local:
+            df.to_csv(fname,index=False)
         print('complete!\n')
 
     if treat:
